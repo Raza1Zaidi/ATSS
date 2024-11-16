@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Upload</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload your Resume</h1>
+        <form action="/process_resume" method="POST" enctype="multipart/form-data">
+            <label for="resume">Choose your resume (PDF):</label>
+            <input type="file" id="resume" name="resume" accept=".pdf" required>
+            <br><br>
+            <label for="job_description">Paste the job description:</label>
+            <textarea id="job_description" name="job_description" rows="6" required></textarea>
+            <br><br>
+            <button type="submit">Review</button>
+        </form>
+    </div>
+</body>
+</html>
