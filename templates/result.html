@@ -3,20 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Review Result</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Review Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .description-box {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .description-box p {
+            margin: 0;
+            font-weight: bold;
+        }
+        .description-box span {
+            color: #555;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .card h2 {
+            margin-top: 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .green {
+            background-color: #e6ffe6;
+            color: #2d662d;
+        }
+        .red {
+            background-color: #ffe6e6;
+            color: #8b0000;
+        }
+        .blue {
+            background-color: #e6f7ff;
+            color: #004080;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Review Result</h1>
-        <h2>Final Score: 85/100</h2> <!-- This should be dynamically updated based on the GPT response -->
-        <h3>Review:</h3>
-        <p>
-            <!-- GPT's review output will go here -->
-            {{ result }}
-        </p>
-        <br>
-        <a href="/">Back to Upload</a>
+        <h1>Resume Review Results</h1>
+        <div class="description-box">
+            <p>Description: <span>{{ Descriptions }}</span></p>
+            <p><strong>Final Score:</strong> {{ score }}</p>
+        </div>
+        <div class="card green">
+            <h2>Strengths</h2>
+            <ul>
+                {% for strength in strengths %}
+                <li>{{ strength }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card red">
+            <h2>Weaknesses</h2>
+            <ul>
+                {% for weakness in weaknesses %}
+                <li>{{ weakness }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card blue">
+            <h2>Suggestions for Improvement</h2>
+            <ul>
+                {% for suggestion in suggestions %}
+                <li>{{ suggestion }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a href="/" class="back-button">Back</a>
     </div>
 </body>
 </html>
+"""
